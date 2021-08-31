@@ -1,4 +1,4 @@
-This is a game we can play Tic Tac Toe against an AI  bot  which uses minmax algorithm to chose the best possible next move. Since  it chooses the optimal  move in every step this AI player is unbeatable.
+This is a game we can play Tic Tac Toe against an AI  bot  which uses minimax algorithm to chose the best possible next move. Since  it chooses the optimal  move in every step this AI player is unbeatable.
 # How to play
     7 |  8  |  9
     ------------
