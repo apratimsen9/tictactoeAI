@@ -107,11 +107,10 @@ int solve(int p)
 			if(p==1)
 			{
 				
-			//	cout<<i<<" ";
+			
 				convert(i+1,r,c);
 				grid[r][c]=1,isfree[i]=0;
 				int cur=solve(2);
-			//	cout<<cur<<" ";
 				maxi=max(maxi,cur);
 				grid[r][c]=0,isfree[i]=1;
 			}	
@@ -142,7 +141,6 @@ void bestmove()
 				int temp=solve(2);
 				if(maxi<temp)
 				{
-					//cout<<i<<" ";
 					maxi=temp;
 					ans=i;
 				}
@@ -150,8 +148,7 @@ void bestmove()
 			}
 		
 	}
-//	cout<<r<<" "<<c;	
-//cout<<ans<<" ";
+
 	convert(ans+1,r,c);
 	grid[r][c]=1,isfree[ans]=0;
 	
@@ -196,64 +193,5 @@ int main()
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
