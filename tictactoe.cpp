@@ -99,6 +99,7 @@ int solve(int p)
 {
 	int r,c,flag=1,ans;
 	int mini=10,maxi=-10;
+		if(check()!=2) return check();
 	for(int i=0;i<9;i++)
 	{
 		if(isfree[i])
@@ -107,10 +108,11 @@ int solve(int p)
 			if(p==1)
 			{
 				
-			
+			//	cout<<i<<" ";
 				convert(i+1,r,c);
 				grid[r][c]=1,isfree[i]=0;
 				int cur=solve(2);
+			//	cout<<cur<<" ";
 				maxi=max(maxi,cur);
 				grid[r][c]=0,isfree[i]=1;
 			}	
@@ -125,7 +127,7 @@ int solve(int p)
 			}
 		}	
 	}
-	if(flag) return check();
+
 	if(p==1) return maxi;
 	else  return mini;				
 }
@@ -141,6 +143,7 @@ void bestmove()
 				int temp=solve(2);
 				if(maxi<temp)
 				{
+					//cout<<i<<" ";
 					maxi=temp;
 					ans=i;
 				}
@@ -148,14 +151,15 @@ void bestmove()
 			}
 		
 	}
-
 	convert(ans+1,r,c);
 	grid[r][c]=1,isfree[ans]=0;
 	
 }
 int main()
 {
-	int flag=1,cnt=0;
+	int flag=0,cnt=0;
+	cout<<"If you want to play first press 1 else enter 0 \n";
+	cin>>flag;
 	while(1)
 	{
 		system("CLS");
@@ -170,7 +174,7 @@ int main()
 				else cout<<"AI wins the match\n";
 				break;
 			}
-			if(!flag)
+			if(flag)
 			{
 			cout<<"Enter Your Turn\n";
 			cin>>turn;
@@ -181,17 +185,16 @@ int main()
 			int r=2-(turn/3),c=(turn%3);
 			grid[r][c]=2;
 			isfree[turn]=0;
-			flag=1;
+			flag=0;
 			cnt++;
 			}
 			}
 			else 
 			{			
-					bestmove();		flag=0;
+					bestmove();		flag=1;
 				
 			}
 	}
 	
 }
-
 
